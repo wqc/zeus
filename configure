@@ -1,0 +1,16 @@
+#! /bin/sh
+
+cd `dirname $0`
+
+mkdir -p auto
+
+ZEUS_ROOT=`pwd`
+TMPGOPATH=`echo ${ZEUS_ROOT%%/src/github.com*}`
+
+. build/options
+
+ZEUS_PREFIX=${ZEUS_PREFIX:-$ZEUS_ROOT}
+ZEUS_BIN=${ZEUS_BIN:-$ZEUS_PREFIX/bin}
+ZEUS_CONF=${ZEUS_CONF:-$ZEUS_PREFIX/conf}
+. build/config
+. build/makefile

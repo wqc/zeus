@@ -1,0 +1,43 @@
+echo "auto option ..."
+help=no
+
+ZEUS_BUILD_DIR=/tmp/zeusbuild
+ZEUS_PREFIX=
+ZEUS_BIN=
+ZEUS_CONF=
+VERSION=`cat VERSION`
+opt=
+
+for option
+do
+    opt="$opt `echo $option | sed -e \"s/\(--[^=]*=\)\(.* .*\)/\1'\2'/\"`"
+    case "$option" in
+        --*=*) value=`echo "$option" | sed -e 's/[-_a-zA-Z0-9]*=//'` ;;
+        *) value="" ;;
+    esac
+
+    case "$option" in
+        --help)                 help=yes;;
+        --prefix=*)             ZEUS_PREFIX="$value";;
+        --bin-dir=*)            ZEUS_BIN="$value";;
+		--conf-dir=*)           ZEUS_CONF="$value";;
+		--build-dir=*)			ZEUS_BUILD_DIR="$value";;
+        *)
+            echo "$0: error: invalid option \"$option\""
+            exit 1
+        ;;
+    esac
+
+done
+
+if [ $help = yes ]; then
+cat << END
+
+    --help                  print this message
+    --prefix=PATH           set installation prefix
+    --bin-dir=PATH          set bin dir
+    --conf-dir=PATH         set conf dir
+	--build-dir=PATH		set build dir
+END
+	exit 1
+fi

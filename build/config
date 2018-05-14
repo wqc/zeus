@@ -1,0 +1,25 @@
+echo "auto config ..."
+
+ZEUS_AUTO_CONFIG="${ZEUS_ROOT}/auto/auto_config.go"
+
+cat << END > $ZEUS_AUTO_CONFIG
+package auto
+
+const (
+	VERION = "$VERSION"
+	Prefix  = "$ZEUS_PREFIX/"
+	ConfDir = "$ZEUS_CONF/"
+)
+END
+
+go fmt $ZEUS_AUTO_CONFIG > /dev/null
+
+ZEUS_BUILDINFO="${ZEUS_ROOT}/auto/buildinfo"
+cat << END > $ZEUS_BUILDINFO
+ZEUS_ROOT=$ZEUS_ROOT
+ZEUS_PREFIX=$ZEUS_PREFIX
+BINPATH=$ZEUS_BIN
+CONFPATH=$ZEUS_CONF
+BUILDPATH=$ZEUS_BUILD_DIR
+VERSION=$VERSION
+END
