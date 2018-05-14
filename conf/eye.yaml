@@ -1,0 +1,14 @@
+log:
+    log_path: logs/eye.log
+    log_level: info
+    log_rotate_size: 104857600
+
+db:
+    alias:  default
+    addr: 127.0.0.1
+    user: root
+    password: testpwd
+    port: 3306
+    database: zeus
+    max_idle_connections: 10
+    max_open_connections: 20
