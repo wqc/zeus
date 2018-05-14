@@ -1,0 +1,10 @@
+# build dir
+auto/
+bin/
+
+# makefile
+makefile
+
+# test
+tests/
+logs/
