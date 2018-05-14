@@ -14,3 +14,5 @@ ZEUS_BIN=${ZEUS_BIN:-$ZEUS_PREFIX/bin}
 ZEUS_CONF=${ZEUS_CONF:-$ZEUS_PREFIX/conf}
 . build/config
 . build/makefile
+
+export GOPATH=$ZEUS_BUILD_DIR
