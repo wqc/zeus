@@ -15,10 +15,40 @@
 			"revisionTime": "2017-12-18T11:18:59Z"
 		},
 		{
+			"checksumSHA1": "kQEMw6T4M4YAqOSInsDdYIfZT64=",
+			"path": "github.com/binance-exchange/go-binance",
+			"revision": "5de9cb3b7ab146ad42a00048575539a33382bb44",
+			"revisionTime": "2017-11-11T19:45:01Z"
+		},
+		{
+			"checksumSHA1": "KrIRJ4p3nRze4NcxfgX5+N9+D1M=",
+			"path": "github.com/go-kit/kit/log",
+			"revision": "1b1a55c53e898557056c7f3fe05be3760a48f172",
+			"revisionTime": "2018-05-11T05:42:48Z"
+		},
+		{
+			"checksumSHA1": "GGXzfVFbz5K5bKAqiFTEgWpa5bE=",
+			"path": "github.com/go-kit/kit/log/level",
+			"revision": "1b1a55c53e898557056c7f3fe05be3760a48f172",
+			"revisionTime": "2018-05-11T05:42:48Z"
+		},
+		{
+			"checksumSHA1": "KxX/Drph+byPXBFIXaCZaCOAnrU=",
+			"path": "github.com/go-logfmt/logfmt",
+			"revision": "390ab7935ee28ec6b286364bba9b4dd6410cb3d5",
+			"revisionTime": "2016-11-15T14:25:13Z"
+		},
+		{
 			"checksumSHA1": "JXVlDIoOSmyi1QAgDI455Wsr/gY=",
 			"path": "github.com/go-sql-driver/mysql",
 			"revision": "3287d94d4c6a48a63e16fffaabf27ab20203af2a",
 			"revisionTime": "2018-04-13T18:15:57Z"
+		},
+		{
+			"checksumSHA1": "luu+ud4XYZhlCoNnSAwCJlbh0Bg=",
+			"path": "github.com/go-stack/stack",
+			"revision": "259ab82a6cad3992b4e21ff5cac294ccb06474bc",
+			"revisionTime": "2017-11-12T03:14:02Z"
 		},
 		{
 			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
@@ -55,6 +85,12 @@
 			"path": "github.com/golang/snappy",
 			"revision": "7db9049039a047d955fe8c19b83c8ff5abd765c7",
 			"revisionTime": "2017-01-19T01:47:23Z"
+		},
+		{
+			"checksumSHA1": "mB5P3/XIC7r4Jc0/K86NA9Jq2CA=",
+			"path": "github.com/gorilla/websocket",
+			"revision": "21ab95fa12b9bdd8fecf5fa3586aad941cc98785",
+			"revisionTime": "2018-04-20T17:16:12Z"
 		},
 		{
 			"checksumSHA1": "4TQcd1G7pH8xwHg50zebCn3lRPw=",
