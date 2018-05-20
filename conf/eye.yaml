@@ -12,3 +12,11 @@ db:
     database: zeus
     max_idle_connections: 10
     max_open_connections: 20
+adaptor:
+    binance_adaptor:
+        endpoint: "asdfasdf"
+        api_id: "asdfasdfas"
+        api_key: "asdfasdfas"
+        symbols: ["asdf","asdfasdf","adfasd"]
+
+    huobi_adaptor:
