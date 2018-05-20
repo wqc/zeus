@@ -25,3 +25,12 @@ func (cfg *DBConfig) Source() string {
 func Open(cfg *DBConfig) error {
 	return orm.RegisterDataBase(cfg.Alias, "mysql", cfg.Source(), cfg.MaxIdleConns, cfg.MaxOpenConns)
 }
+
+func Orm(name string) (orm.Ormer, error) {
+	o := orm.NewOrm()
+	if err := o.Using(name); err != nil {
+		return nil, err
+	}
+
+	return o, nil
+}
