@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/zeusship/zeus/eye/adaptor"
 	"github.com/zeusship/zeus/storage"
 	"github.com/zeusship/zeus/util/log"
 
@@ -13,10 +14,15 @@ func Parse(path string) (*Config, error) {
 		return nil, err
 	}
 
+	cfg.BinanceCfg.DBConfig = cfg.DBCfg
+	cfg.HuobiCfg.DBConfig = cfg.DBCfg
+
 	return cfg, nil
 }
 
 type Config struct {
-	DBCfg  *storage.DBConfig `yaml:db`
-	LogCfg *log.LogCfg       `yaml:"log"`
+	DBCfg      *storage.DBConfig      `yaml:db`
+	LogCfg     *log.LogCfg            `yaml:"log"`
+	BinanceCfg *adaptor.BinanceConfig `yaml:"binance"`
+	HuobiCfg   *adaptor.HuobiConfig   `yaml:"huobi"`
 }

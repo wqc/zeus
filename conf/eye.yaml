@@ -7,16 +7,18 @@ db:
     alias:  default
     addr: 127.0.0.1
     user: root
-    password: testpwd
+    password: ""
     port: 3306
     database: zeus
     max_idle_connections: 10
     max_open_connections: 20
-adaptor:
-    binance_adaptor:
-        endpoint: "asdfasdf"
-        api_id: "asdfasdfas"
-        api_key: "asdfasdfas"
-        symbols: ["asdf","asdfasdf","adfasd"]
-
-    huobi_adaptor:
+binance:
+    endpoint: "wss://stream.binance.com:9443"
+    api_id: "123"
+    api_key: "321"
+    symbols: ["bnbustd","ethustd","btcustd", "bccustd","neoustd","adaustd","ltcustd","xrpustd","qtumustd"]
+huobi:
+    endpoint: "xxxxx"
+    api_id: "123"
+    api_key: "321"
+    symbols: ["bnbustd","ethustd","btcustd", "bccustd","neoustd","adaustd","ltcustd","xrpustd","qtumustd"]

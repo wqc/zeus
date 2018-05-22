@@ -117,6 +117,7 @@ func (ba *binanceAdaptor) runSymbol(symbol string) {
 				m.Price = b.Price
 				m.Quantity = b.Quantity
 				m.Symbol = t.Symbol
+				m.Exchange = "binance"
 				m.Timestamp = t.Time.UnixNano() / int64(time.Millisecond)
 				ba.marketCh <- m
 			}
@@ -127,6 +128,7 @@ func (ba *binanceAdaptor) runSymbol(symbol string) {
 				m.Price = a.Price
 				m.Quantity = a.Quantity
 				m.Symbol = t.Symbol
+				m.Exchange = "binance"
 				m.Timestamp = t.Time.UnixNano() / int64(time.Millisecond)
 				ba.marketCh <- m
 			}

@@ -11,6 +11,7 @@ const (
 
 type Market struct {
 	ID         int64     `orm:"column(id);pk"`
+	Exchange   string    `orm:"column(exchange)"`
 	Symbol     string    `orm:"column(symbol)"`
 	Timestamp  int64     `orm:"column(ts)"`
 	Type       int       `orm:"column(ptype)"`

@@ -1,6 +1,9 @@
 package main
 
 import (
+	"sync"
+
+	"github.com/zeusship/zeus/eye/adaptor"
 	"github.com/zeusship/zeus/eye/config"
 	"github.com/zeusship/zeus/eye/flag"
 	"github.com/zeusship/zeus/util/log"
@@ -26,4 +29,15 @@ func main() {
 	log.Info("set log, path: \"%s\", size: %d, level: %s",
 		cfg.LogCfg.Path, cfg.LogCfg.RotateSize, cfg.LogCfg.Level)
 	log.Initlog(cfg.LogCfg.Path, cfg.LogCfg.Level, cfg.LogCfg.RotateSize)
+
+	binance := adaptor.NewBinanceAdaptor(cfg.BinanceCfg)
+	binance.Init()
+	wg := new(sync.WaitGroup)
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		binance.Run()
+	}()
+
+	wg.Wait()
 }

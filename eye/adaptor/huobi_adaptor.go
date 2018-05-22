@@ -11,8 +11,8 @@ import (
 
 type HuobiConfig struct {
 	EndPoint string            `yaml:"endpoint"`
-	ApiKey   string            `yaml:"key"`
-	ApiID    string            `yaml:"id"`
+	ApiKey   string            `yaml:"api_key"`
+	ApiID    string            `yaml:"api_id"`
 	Symbols  []string          `yaml:"symbols"`
 	DBConfig *storage.DBConfig `yaml:"db"`
 }
@@ -97,6 +97,7 @@ func (ha *huobiAdaptor) runSymbol(symbol string) {
 				m.Quantity = d.Amount
 				m.Symbol = symbol
 				m.Timestamp = d.TimestampMS
+				m.Exchange = "huobi"
 				ha.marketCh <- m
 			}
 		}
