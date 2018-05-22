@@ -81,6 +81,7 @@ func (ba *binanceAdaptor) Run() {
 		log.Info("accept symbol: %s", symbol)
 		ba.wg.Add(1)
 		go ba.runSymbol(symbol)
+		ba.wg.Wait()
 	}
 }
 
@@ -135,7 +136,7 @@ func (ba *binanceAdaptor) runSymbol(symbol string) {
 
 		case <-done:
 			log.Info("endpoint finish send data")
-			time.Sleep(time.Millisecond * 100)
+			time.Sleep(time.Second * 5)
 			break
 		}
 	}
