@@ -44,22 +44,9 @@ func (ba *binanceAdaptor) Init() {
 	signer.Key = []byte(ba.cfg.ApiKey)
 	ba.signer = signer
 
-	logger := klog.NewLogfmtLogger(klog.NewSyncWriter(os.Stderr))
-	logger = klevel.NewFilter(logger, klevel.AllowAll())
-	logger = klog.With(logger, "time", klog.DefaultTimestampUTC, "caller", klog.DefaultCaller)
-
 	// may be need cancel
-	ctx := context.Background()
 
-	banApi := binance.NewAPIService(
-		ba.cfg.EndPoint,
-		ba.cfg.ApiID,
-		ba.signer,
-		logger,
-		ctx,
-	)
-
-	ba.banApi = banApi
+	//ba.banApi = banApi
 
 	ba.waitSymbol = make(chan string, len(ba.cfg.Symbols)+1)
 	for _, symbol := range ba.cfg.Symbols {
@@ -94,8 +81,20 @@ func (ba *binanceAdaptor) Close() {
 
 func (ba *binanceAdaptor) runSymbol(symbol string) {
 	defer ba.wg.Done()
+	ctx := context.Background()
+	logger := klog.NewLogfmtLogger(klog.NewSyncWriter(os.Stderr))
+	logger = klevel.NewFilter(logger, klevel.AllowAll())
+	logger = klog.With(logger, "time", klog.DefaultTimestampUTC, "caller", klog.DefaultCaller)
 
-	tch, done, err := ba.banApi.DepthWebsocket(binance.DepthWebsocketRequest{Symbol: symbol})
+	banApi := binance.NewAPIService(
+		ba.cfg.EndPoint,
+		ba.cfg.ApiID,
+		ba.signer,
+		logger,
+		ctx,
+	)
+
+	tch, done, err := banApi.DepthWebsocket(binance.DepthWebsocketRequest{Symbol: symbol})
 	if err != nil {
 		log.Error("new binance ws API faild, err: %s", err)
 		return
