@@ -53,7 +53,7 @@ func (ba *binanceAdaptor) Init() {
 
 	banApi := binance.NewAPIService(
 		ba.cfg.EndPoint,
-		ba.cfg.ApiID,
+		ba.cfg.ApiKey,
 		ba.signer,
 		logger,
 		ctx,

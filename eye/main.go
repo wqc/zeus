@@ -26,10 +26,6 @@ func main() {
 		return
 	}
 
-	log.Info("set log, path: \"%s\", size: %d, level: %s",
-		cfg.LogCfg.Path, cfg.LogCfg.RotateSize, cfg.LogCfg.Level)
-	log.Initlog(cfg.LogCfg.Path, cfg.LogCfg.Level, cfg.LogCfg.RotateSize)
-
 	binance := adaptor.NewBinanceAdaptor(cfg.BinanceCfg)
 	binance.Init()
 	wg := new(sync.WaitGroup)
